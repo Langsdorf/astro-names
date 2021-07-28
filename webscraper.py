@@ -21,9 +21,9 @@ blacklist = [
 nameList = json.load(open("data.json","r"))
 
 def save_data():
-    existing = json.load(open("data.json","r"))
+    existing = json.load(open("data.json","r", encoding='utf8'))
     uniques = set(nameList) - set(existing)
-    json.dump(list(set(existing)) + list(uniques),open("data.json","w"),indent=4)
+    json.dump(list(set(existing)) + list(uniques),open("data.json","w", encoding='utf8'),indent=4, ensure_ascii=False)
 
 def open_link(l):
     names = BeautifulSoup(requests.get(l).content, 'html.parser').find_all('td', recursive=True)
