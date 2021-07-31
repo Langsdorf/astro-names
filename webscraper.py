@@ -18,7 +18,7 @@ blacklist = [
     "Lists of spacecraft"
 ]
 
-nameList = json.load(open("data.json","r"))
+nameList = json.load(open("data.json","r", encoding='utf8'))
 
 def save_data():
     existing = json.load(open("data.json","r", encoding='utf8'))
